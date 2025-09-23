@@ -1,4 +1,4 @@
-# This is the script for creating service account in kubernetes all steps are automated and just provide the inputs which are requires to create service account
+# This is the script for creating service account in kubernetes all steps are automated and just provide the inputs which are requires to create service account.
 
 #!/bin/bash
 
