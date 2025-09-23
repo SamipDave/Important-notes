@@ -32,6 +32,10 @@ Syft → SBOM.json → Grype/Trivy → Vulnerability Report
 
 
 
+
+
+
+
 Q- SBOm will be generated after docker image build or before ?
 
 A- 
@@ -63,4 +67,25 @@ Syft: image ya source code dono se SBOM bana deta hai.
 Trivy: image, repo, filesystem sab se generate kar sakta hai.
 
 
+
+
+
+Q- it is good to do  SBOM and Scan on both side
+
+
+A-Dono jagah pe SBOM generate karna best practice hai — aur industry me isi ko follow kiya jata hai.
+
+Source level SBOM → developer ko jaldi feedback milta hai, dependency issues early fix ho jaate hain.
+
+Image level SBOM → final runtime artifact ka trust milta hai, jisme base image + OS packages bhi cover ho jaate hain.
+
+Matlab ek tarah se tum shift-left security (before build) bhi kar rahe ho aur runtime compliance (after build) bhi ensure kar rahe ho.
+
+👉 Agar tum DevOps pipeline me ho toh generally flow aisa hota hai:
+
+Code push → Source SBOM + scan (fast feedback)
+
+Docker build → Image SBOM + scan (final verification before deploy)
+
+Ye dono combine karke tumhara security posture strong ho jata hai 💯
 
