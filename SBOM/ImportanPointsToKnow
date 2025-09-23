@@ -1,0 +1,30 @@
+Q-hum sbom generate karte hai fir uske report ko scan karte hai ? and if yes then which tool and why ?
+
+A-
+Process generally aisa hota hai:
+
+SBOM generate karna – pehle tum apne project ka SBOM (Software Bill of Materials) banao, jisme sab dependencies, libraries, licenses, versions ki detail hoti hai.
+
+Tools: Syft, CycloneDX plugin, SPDX tools etc.
+
+SBOM ko scan karna – fir us SBOM ko vulnerability scanners se scan karte hain taaki known CVEs, outdated packages, aur risky licenses detect ho sake.
+
+Tools:
+
+Grype (agar Syft se SBOM banaya hai toh best pair hai)
+
+Trivy (SBOM + container + code sab scan kar sakta hai)
+
+Dependency-Track (CycloneDX SBOM analyze karta hai aur continuously monitor bhi karta hai)
+
+🔑 Why ye tools?
+
+Syft + Grype → lightweight, fast, aur CLI-based (DevSecOps pipelines me easy).
+
+Trivy → all-in-one (SBOM generate bhi karega, scan bhi).
+
+Dependency-Track → enterprise-level monitoring, dashboard-based, continuous SBOM analysis.
+
+👉 Simple workflow:
+Syft → SBOM.json → Grype/Trivy → Vulnerability Report
+
