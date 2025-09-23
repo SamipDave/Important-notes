@@ -1,4 +1,4 @@
-## After creating service account this is the script to create ROle-Rolebinding both cluster or namespace scoped, just provide the imput you want to add in that manifests,
+## After creating service account this is the script to create ROle-Rolebinding both cluster or namespace scoped, just provide the imput you want to add in that manifests
 
 
 #!/bin/bash
