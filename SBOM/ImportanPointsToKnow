@@ -28,3 +28,39 @@ Dependency-Track → enterprise-level monitoring, dashboard-based, continuous SB
 👉 Simple workflow:
 Syft → SBOM.json → Grype/Trivy → Vulnerability Report
 
+
+
+
+
+Q- SBOm will be generated after docker image build or before ?
+
+A- 
+
+Dekho SBOM dono tarah se generate kiya jaa sakta hai:
+
+Before Docker image build (source code / dependency level)
+
+Yaha tum SBOM apne project ke source code aur package manager (npm, maven, pip, etc.) se generate karte ho.
+
+Benefit → tumhe early stage me hi pata lag jaata hai ki kaunsi vulnerable dependency aa rahi hai, aur fix karna easy hai.
+
+After Docker image build (image level)
+
+Yaha tum final Docker image ko scan karke SBOM banate ho.
+
+Benefit → ye SBOM actual runtime image ke hisaab se hota hai, jisme base image + all dependencies + OS packages included hote hain.
+
+🔑 Best practice → dono jagah pe SBOM generate karna (source + image).
+
+Source SBOM → dev stage me vulnerabilities catch karne ke liye.
+
+Image SBOM → final artifact compliance & runtime security ke liye.
+
+👉 Tools bhi dono support karte hain:
+
+Syft: image ya source code dono se SBOM bana deta hai.
+
+Trivy: image, repo, filesystem sab se generate kar sakta hai.
+
+
+
