@@ -1,0 +1,53 @@
+*** Container resize policies
+     resizePolicy:
+    - resourceName: cpu
+      restartPolicy: NotRequired
+    - resourceName: memory
+      restartPolicy: RestartContainer
+
+* containerRestartPolicy
+* QoS Class
+* Different Storage class that we can attach in kubernetes yaml in different form can check in detail on <https://kubernetes.io/docs/concepts/storage/>
+  
+      Volumes
+      Persistent Volumes
+      Projected Volumes
+      Ephemeral Volumes
+      Storage Classes
+      Volume Attributes Classes
+      Dynamic Volume Provisioning
+      Volume Snapshots
+      Volume Snapshot Classes
+      CSI Volume Cloning
+      Storage Capacity
+      Node-specific Volume Limits
+      Local ephemeral storage
+      Volume Health Monitoring
+      Windows Storage
+
+* pod security Context
+
+   securityContext:
+    runAsUser: 1000
+    runAsGroup: 3000
+    fsGroup: 2000
+ * Container-level security context
+    securityContext:
+      allowPrivilegeEscalation: false
+      runAsNonRoot: true
+      runAsUser: 1000
+      capabilities:
+        drop:
+        - ALL
+      seccompProfile:
+        type: RuntimeDefault
+
+   --- Security context options
+User and Group IDs: Control which user/group the container runs as
+Capabilities: Add or drop Linux capabilities
+Seccomp Profiles: Set security computing profiles
+SELinux Options: Configure SELinux context
+AppArmor: Configure AppArmor profiles for additional access control
+Windows Options: Configure Windows-specific security settings
+
+* Priority class
